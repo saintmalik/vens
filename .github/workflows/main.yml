@@ -33,6 +33,9 @@ jobs:
       - name: Integration tests
         run: go test -v ./cmd/vens/... -run TestScript
 
+      - name: Cross-compile for Windows
+        run: GOOS=windows go build ./...
+
       - name: Resolve golangci-lint version
         id: golangci
         run: echo "version=$(make print-golangci-version)" >> "$GITHUB_OUTPUT"
